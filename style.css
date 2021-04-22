@@ -17,6 +17,8 @@ body {
   );
 }
 
+/* Calculator Grid to represent container for the slots */
+
 .calculator-grid {
   display: grid;
   justify-content: center;
@@ -26,6 +28,7 @@ body {
   grid-template-rows: minmax(120px, auto) repeat(5, 100px);
 }
 
+/* Buttons inside the container above*/
 .calculator-grid > button {
   cursor: pointer;
   font-size: 2rem;
@@ -38,10 +41,12 @@ body {
   background-color: rgba(255, 255, 255, 0.9);
 }
 
+/* For buttons that take two slots instead of one */
 .span-two {
   grid-column: span 2;
 }
 
+/* Output screen */
 .output {
   grid-column: 1 / -1;
   background-color: rgba(0, 0, 0, 0.75);
@@ -53,11 +58,12 @@ body {
   word-wrap: break-word;
   word-break: break-all;
 }
-
+/* submitted number slot (on top) */
 .output .previous-operand {
   color: rgba(255, 255, 255, 0.75);
   font-size: 1.5rem;
 }
+/* The current value slot (bottom) */
 .output .current-operand {
   color: white;
   font-size: 2.5rem;
