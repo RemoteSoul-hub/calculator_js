@@ -3,14 +3,14 @@ class Calculator {
     constructor(previousOperandTextElement, currentOperandTextElement){   /*Takes the current and previous values */
         this.previousOperandTextElement = previousOperandTextElement;
         this.currentOperandTextElement = currentOperandTextElement;
-        this.clear();  /* calls clear method every time the calculator is initialized */
+        this.clear()  /* calls clear method every time the calculator is initialized */
     }
 
     // Clears both values and the operation symbol 
     clear() {
-            this.currentOperand = '';
-            this.previousOperand = '';
-            this.operation = undefined;
+            this.currentOperand = ''
+            this.previousOperandText = ''
+            this.operation = undefined
     }
  // Delete button that removes the latest character of the currentOperand string 
     delete() {
@@ -65,9 +65,7 @@ class Calculator {
 
     updateDisplay() {
         this.currentOperandTextElement.innerText = this.currentOperand;
-        if (this.operation != null){
-            this.previousOperandTextElement.innerText = `${this.previousOperand} ${this.operation}`;
-        }
+        this.previousOperandTextElement.innerText = this.previousOperand;
         
     }
 }
