@@ -21,6 +21,7 @@ class Calculator {
         if(number === '.' && this.currentOperand.includes('.')) return   // prevents from having many '.' characters in one number //
         this.currentOperand = this.currentOperand.toString() + number.toString();  // adds the number next to the already existing value on the active (current) slot
     }
+
 // inserts the kind of operation to apply on the numbers //
     chooseOperation(operation) {
         if(this.currentOperand === '') return  // if the current slot is empty, and a symbol is picked, nothing happens
@@ -50,6 +51,9 @@ class Calculator {
             case '÷':
             computation = prev / current;
             break
+            case '√':
+                computation = Math.sqrt(current);
+                break
             default: 
             return
     }
@@ -92,6 +96,7 @@ pie.addEventListener('click', () => {
     calculator.appendNumber(22/7);
     calculator.updateDisplay();
 })
+
 
 operationButtons.forEach(button => {
     button.addEventListener('click', () => {
