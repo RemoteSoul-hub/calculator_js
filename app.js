@@ -67,6 +67,9 @@ class Calculator {
             case '÷':
             computation = prev / current
             break
+            case 'x^': 
+            computation = Math.pow(prev, current)
+            break
             default: 
             return
     }
