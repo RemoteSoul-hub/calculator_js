@@ -17,11 +17,23 @@ class Calculator {
 
     sqrt(currentOperand){
         const value = parseFloat(this.currentOperand);
+        if (isNaN(value)) return
         this.currentOperand = Math.sqrt(value);
             console.log(this.currentOperand);
            calculator.updateDisplay();
 
     }
+    power(powValue){
+        const value = parseFloat(this.currentOperand);
+        if (isNaN(value)) return
+       if (powValue === 2) {
+           this.currentOperand = value*value;
+       }
+            console.log(this.currentOperand);
+           calculator.updateDisplay();
+
+    }
+
     appendNumber(number) {
         if(number === '.' && this.currentOperand.includes('.')) return
         this.currentOperand = this.currentOperand.toString() + number.toString();
@@ -73,6 +85,7 @@ class Calculator {
 const numberButtons = document.querySelectorAll('[data-number]');
 const piValue = document.querySelector('[data-pi]');
 const sqrt = document.querySelector('[data-sqrt');
+const powTwo = document.querySelector('[data-power');
 const operationButtons = document.querySelectorAll('[data-operation]');
 const equalsButton = document.querySelector('[data-equals]');
 const deleteButton = document.querySelector('[data-delete]');
@@ -97,6 +110,10 @@ piValue.addEventListener('click', () => {
 
 sqrt.addEventListener('click', () => {
     calculator.sqrt();
+})
+
+powTwo.addEventListener('click', () => {
+    calculator.power(2);
 })
 
 operationButtons.forEach(button => {
