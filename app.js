@@ -54,6 +54,21 @@ class Calculator {
         this.currentOperand = Math.tan(radTan).toFixed(3);
            calculator.updateDisplay();
     }
+   ln(currentOperand){
+        const value = parseFloat(this.currentOperand);
+        if (isNaN(value)) return
+        this.currentOperand = Math.log(value);
+            console.log(this.currentOperand);
+           calculator.updateDisplay();
+    }
+
+    log(currentOperand){
+        const value = parseFloat(this.currentOperand);
+        if (isNaN(value)) return
+        this.currentOperand = Math.log(value)/Math.log(10);
+            console.log(this.currentOperand);
+           calculator.updateDisplay();
+    }
 
     power(powValue){
         const value = parseFloat(this.currentOperand);
@@ -125,6 +140,8 @@ const exp = document.querySelector('[data-exp');
 const sin = document.querySelector('[data-sin');
 const cos = document.querySelector('[data-cos');
 const tan = document.querySelector('[data-tan');
+const ln = document.querySelector('[data-ln');
+const log = document.querySelector('[data-log');
 const operationButtons = document.querySelectorAll('[data-operation]');
 const equalsButton = document.querySelector('[data-equals]');
 const deleteButton = document.querySelector('[data-delete]');
@@ -169,6 +186,14 @@ cos.addEventListener('click', () => {
 
 tan.addEventListener('click', () => {
     calculator.tan();
+})
+
+ln.addEventListener('click', () => {
+    calculator.ln();
+})
+
+log.addEventListener('click', () => {
+    calculator.log();
 })
 
 operationButtons.forEach(button => {
