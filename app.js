@@ -21,8 +21,25 @@ class Calculator {
         this.currentOperand = Math.sqrt(value);
             console.log(this.currentOperand);
            calculator.updateDisplay();
-
     }
+
+    exp(currentOperand){
+        const value = parseFloat(this.currentOperand);
+        if (isNaN(value)) return
+        this.currentOperand = Math.exp(value);
+            console.log(this.currentOperand);
+           calculator.updateDisplay();
+    }
+
+    sin(currentOperand){
+        const degreeSin = parseFloat(this.currentOperand);
+        if (isNaN(degreeSin)) return
+        const convertedtoRad = degreeSin*Math.PI/180;
+        this.currentOperand = Math.sin(convertedtoRad);
+            console.log(this.currentOperand);
+           calculator.updateDisplay();
+    }
+
     power(powValue){
         const value = parseFloat(this.currentOperand);
         if (isNaN(value)) return
@@ -89,6 +106,8 @@ const numberButtons = document.querySelectorAll('[data-number]');
 const piValue = document.querySelector('[data-pi]');
 const sqrt = document.querySelector('[data-sqrt');
 const powTwo = document.querySelector('[data-power');
+const exp = document.querySelector('[data-exp');
+const sin = document.querySelector('[data-sin');
 const operationButtons = document.querySelectorAll('[data-operation]');
 const equalsButton = document.querySelector('[data-equals]');
 const deleteButton = document.querySelector('[data-delete]');
@@ -117,6 +136,14 @@ sqrt.addEventListener('click', () => {
 
 powTwo.addEventListener('click', () => {
     calculator.power(2);
+})
+
+exp.addEventListener('click', () => {
+    calculator.exp();
+})
+
+sin.addEventListener('click', () => {
+    calculator.sin();
 })
 
 operationButtons.forEach(button => {
