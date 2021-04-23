@@ -15,6 +15,13 @@ class Calculator {
             this.currentOperand = this.currentOperand.toString().slice(0, -1)
     }
 
+    sqrt(currentOperand){
+        const value = parseFloat(this.currentOperand);
+        this.currentOperand = Math.sqrt(value);
+            console.log(this.currentOperand);
+           calculator.updateDisplay();
+
+    }
     appendNumber(number) {
         if(number === '.' && this.currentOperand.includes('.')) return
         this.currentOperand = this.currentOperand.toString() + number.toString();
@@ -65,6 +72,7 @@ class Calculator {
 
 const numberButtons = document.querySelectorAll('[data-number]');
 const piValue = document.querySelector('[data-pi]');
+const sqrt = document.querySelector('[data-sqrt');
 const operationButtons = document.querySelectorAll('[data-operation]');
 const equalsButton = document.querySelector('[data-equals]');
 const deleteButton = document.querySelector('[data-delete]');
@@ -85,6 +93,10 @@ numberButtons.forEach(button => {
 piValue.addEventListener('click', () => {
     calculator.appendNumber(22/7);
     calculator.updateDisplay(); 
+})
+
+sqrt.addEventListener('click', () => {
+    calculator.sqrt();
 })
 
 operationButtons.forEach(button => {
@@ -109,3 +121,4 @@ deleteButton.addEventListener('click', button => {
     calculator.delete();
     calculator.updateDisplay();
 })
+
