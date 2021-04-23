@@ -34,9 +34,24 @@ class Calculator {
     sin(currentOperand){
         const degreeSin = parseFloat(this.currentOperand);
         if (isNaN(degreeSin)) return
-        const convertedtoRad = degreeSin*Math.PI/180;
-        this.currentOperand = Math.sin(convertedtoRad);
-            console.log(this.currentOperand);
+        const radSin = degreeSin*Math.PI/180;
+        this.currentOperand = Math.sin(radSin).toFixed(3);
+           calculator.updateDisplay();
+    }
+
+    cos(currentOperand){
+        const degreeCos = parseFloat(this.currentOperand);
+        if (isNaN(degreeCos)) return
+        const radCos = degreeCos*Math.PI/180;
+        this.currentOperand = Math.cos(radCos).toFixed(3);
+           calculator.updateDisplay();
+    }
+
+    tan(currentOperand){
+        const degreeTan = parseFloat(this.currentOperand);
+        if (isNaN(degreeTan)) return
+        const radTan = degreeTan*Math.PI/180;
+        this.currentOperand = Math.tan(radTan).toFixed(3);
            calculator.updateDisplay();
     }
 
@@ -108,6 +123,8 @@ const sqrt = document.querySelector('[data-sqrt');
 const powTwo = document.querySelector('[data-power');
 const exp = document.querySelector('[data-exp');
 const sin = document.querySelector('[data-sin');
+const cos = document.querySelector('[data-cos');
+const tan = document.querySelector('[data-tan');
 const operationButtons = document.querySelectorAll('[data-operation]');
 const equalsButton = document.querySelector('[data-equals]');
 const deleteButton = document.querySelector('[data-delete]');
@@ -144,6 +161,14 @@ exp.addEventListener('click', () => {
 
 sin.addEventListener('click', () => {
     calculator.sin();
+})
+
+cos.addEventListener('click', () => {
+    calculator.cos();
+})
+
+tan.addEventListener('click', () => {
+    calculator.tan();
 })
 
 operationButtons.forEach(button => {
